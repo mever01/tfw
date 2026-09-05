@@ -13,6 +13,9 @@ class MappingExpectation(
     Generic[KeyT, ValueT],
 ):
 
+    def __init__(self, actual: Mapping[KeyT, ValueT]):
+        super().__init__(actual)
+
     def has_key(self, expected: KeyT):
         self._assert(
             expected in self.actual,

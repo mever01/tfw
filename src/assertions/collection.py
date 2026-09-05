@@ -12,6 +12,9 @@ class CollectionExpectation(
     Generic[ItemT],
 ):
 
+    def __init__(self, actual: Collection[ItemT]):
+        super().__init__(actual)
+
     def contains(self, expected: ItemT):
         self._assert(
             expected in self.actual,
